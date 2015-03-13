@@ -23,7 +23,7 @@ module.exports = function (opt, cb) {
         if (!opt.serviecName) opt.serviceName = fileName;
     }
 
-    var shell = opt.shellFile || './shell.js';
+    var shell = opt.shellFile || path.join(__dirname, 'shell.js');
 
 
 
