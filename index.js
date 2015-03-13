@@ -3,6 +3,23 @@
 var path = require('path'),
     fs = require('fs');
 
+function Replacer(string) {
+    this.string = string;
+}
+
+Replacer.prototype.replace = function (match, replaceWith) {
+    var parts = this.string.split(match);
+
+    if (parts.length < 2) throw Error('' + match + ' not found in ' + this.string);
+    if (parts.length > 2) throw Error('more than one ' + match + ' found in ' + this.string);
+
+    var result = parts[0] + replaceWith + parts[1];
+
+    return new Replacer(result);
+}
+
+Replacer.prototype.toString = function () { return this.string; }
+
 module.exports = function (opt, cb) {
     if (!opt.file && (!opt.contents && opt.contents !== '')) {
         throw Error('Missing file: node-to-angular-service');
@@ -31,10 +48,11 @@ module.exports = function (opt, cb) {
         if (err) cb(err);
 
         function process(contents) {
-            var result = shellContents
+            var result = new Replacer(shellContents)
                 .replace('/* inject: moduleName */', '\'' + opt.moduleName + '\'')
                 .replace('/* inject: serviceName */', '\'' + opt.serviceName + '\'')
-                .replace('/* inject: file */', contents);
+                .replace('/* inject: file */', contents)
+                .toString();
 
             cb(null, result);
         }
