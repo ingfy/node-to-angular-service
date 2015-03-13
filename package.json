@@ -10,7 +10,7 @@
     "convert"
   ],
   "readme": "README.md",
-  "repository": "https://github.com/ingfy/asd",
+  "repository": "https://github.com/ingfy/node-to-angular-service",
   "author": "Yngve Svalestuen",
   "license": "ISC",
   "devDependencies": {
