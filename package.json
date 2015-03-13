@@ -1,5 +1,5 @@
 {
-  "name": "gulp-node-to-angular-service",
+  "name": "node-to-angular-service",
   "version": "1.0.0",
   "description": "Convert a node module to an angular service exposing module.exports as a service.",
   "main": "index.js",
