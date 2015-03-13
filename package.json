@@ -1,0 +1,23 @@
+{
+  "name": "gulp-node-to-angular-service",
+  "version": "1.0.0",
+  "description": "Convert a node module to an angular service exposing module.exports as a service.",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "keywords": [
+    "convert"
+  ],
+  "readme": "README.md",
+  "repository": "https://github.com/ingfy/asd",
+  "author": "Yngve Svalestuen",
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^3.8.11",
+    "gulp-mocha": "^2.0.0",
+    "mocha": "^2.2.1"
+  },
+  "dependencies": {
+  }
+}
